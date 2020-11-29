@@ -15,8 +15,9 @@ sudo su
 # find a nice home
 cd /root/
 
-# wget the file from this repository (if git is installed)
-wget https://github.com/dajul/ufw-spamhaus/blob/master/ufw-spamhaus.sh
+# git clone the file from this repository (if git is installed)
+git clone https://github.com/dajul/ufw-spamhaus.git
+cd ufw-spamhaus
 
 # (optional) manually copy and create the file
 vim ufw-spamhaus.sh
@@ -25,7 +26,7 @@ vim ufw-spamhaus.sh
 chmod +x ufw-spamhaus.sh
 
 # set it loose
-./spamhaus.sh
+./ufw-spamhaus.sh
 
 # confirm the rules have been added
 iptables -L Spamhaus -n
@@ -47,10 +48,10 @@ cd ufw-spamhaus
 vim spamhaus.sh
 
 # make it executable
-chmod +x spamhaus.sh
+chmod +x ufw-spamhaus.sh
 
 # set it loose
-sudo ./ufw-spamhaus/spamhaus.sh
+sudo ./ufw-spamhaus/ufw-spamhaus.sh
 
 # confirm the rules have been added
 sudo iptables -L Spamhaus -n
