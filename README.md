@@ -2,6 +2,13 @@
 Download Spamhaus DROP and EDROP Lists and block access with UFW or use the following instructions:
 Go to the folder where you want to store the list (either your local user or root)
 
+# (optional) install ufw
+<pre>
+sudo apt-get install ufw
+</pre>
+
+# Get the ufw-spamhaus list
+
 <pre>
 # make yourself sudo if possible
 sudo su
