@@ -9,7 +9,7 @@ eURL="https://www.spamhaus.org/drop/edrop.txt"
 v6URL="https://www.spamhaus.org/drop/dropv6.txt"
 DROP_ADD_TO_UFW="/usr/local/src/DROP2.txt"
 eDROP_ADD_TO_UFW="/usr/local/src/eDROP2.txt"
-v6DROP_ADD_To_UFW="/usr/local/src/v6DROP.txt"
+v6DROP_ADD_TO_UFW="/usr/local/src/v6DROP.txt"
 DROP_ARCHIVE_FILE="/usr/local/src/DROP_$EXEC_DATE"
 eDROP_ARCHIVE_FILE="/usr/local/src/eDROP_$EXEC_DATE"
 v6DROP_ARCHIVE_FILE="/usr/local/src/v6DROP_$EXEC_DATE"
@@ -45,7 +45,7 @@ echo "Download daily v6DROP file:"
 wget -q -O - "$v6URL" > $SPAMHAUS_v6DROP
 grep -v '^;' $SPAMHAUS_v6DROP | cut -d ' ' -f 1 > $v6DROP_ADD_TO_UFW
 echo " "
-echo "Extract eDROP IP addresses and add to UFW:"
+echo "Extract v6DROP IP addresses and add to UFW:"
 cat $v6DROP_ADD_TO_UFW | while read line
 do
 /usr/sbin/ufw insert 1 deny from "$line" comment "v6DROP_Blacklisted_IPs $EXEC_DATE"
