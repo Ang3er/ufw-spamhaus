@@ -29,17 +29,21 @@ As user do:
 # find a nice home
 cd /home/YOUR-USERNAME/bin/
 
-# wget the file from this repository (if git is installed)
-wget https://github.com/dajul/ufw-spamhaus/blob/master/ufw-spamhaus.sh
+# git clone the file from this repository (if git is installed)
+git clone https://github.com/dajul/ufw-spamhaus.git
+cd ufw-spamhaus
+
 
 # create the file and paste
+mkdir ufw-spamhaus
+cd ufw-spamhaus
 vim spamhaus.sh
 
 # make it executable
 chmod +x spamhaus.sh
 
 # set it loose
-sudo ./spamhaus.sh
+sudo ./ufw-spamhaus/spamhaus.sh
 
 # confirm the rules have been added
 sudo iptables -L Spamhaus -n
@@ -53,7 +57,7 @@ If you want to run this script through `crontab -e`, you must copy and paste you
 crontab -e
 
 run the script every day at 3am
-0 3 * * * /root/ufw-spamhaus.sh
+0 3 * * * /root/ufw-spamhaus/ufw-spamhaus.sh
 </pre>
 
 crontab as user
@@ -63,7 +67,7 @@ In order for the list to automatically update each day, you'll need to setup a c
 crontab -e
 
 run the script every day at 3am
-0 3 * * * /home/YOUR-USERNAME/bin/spamhaus.sh
+0 3 * * * /home/YOUR-USERNAME/bin/ufw-spamhaus/spamhaus.sh
 </pre>
 
 ## Troubleshooting ##
